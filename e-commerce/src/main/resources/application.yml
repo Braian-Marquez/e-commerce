@@ -1,0 +1,36 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-cj2sel18g3n1jkh057c0-a.oregon-postgres.render.com:5432/comercializa
+    username: comercializa_user
+    password: oe3EQD7IMwW6JcDICCiXkLLDYwqWvpdZ
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mailprueba029@gmail.com
+    password: prcthbkvebjpdqpz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+springdoc:
+  swagger-ui:
+    path=/api/docs:
+
