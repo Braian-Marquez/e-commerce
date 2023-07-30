@@ -5,23 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String info;
-    private BigDecimal price;
-    @OneToOne
-    private Category category;
-    @ManyToOne
-    private OrderPayment orderPayment;
+    private String surname;
+    private String document;
+    private String email;
+    private String location;
+    private String phoneNumber;
+    private String password;
+    @OneToMany
+    private List<OrderPayment>orderPayments;
 }

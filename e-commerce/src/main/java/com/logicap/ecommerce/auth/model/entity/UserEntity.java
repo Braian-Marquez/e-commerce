@@ -1,6 +1,7 @@
 package com.logicap.ecommerce.auth.model.entity;
 
 
+import com.logicap.ecommerce.model.entity.Commerce;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,8 +43,8 @@ public class UserEntity implements UserDetails {
 
     private String password;
 
-    private Boolean reservation;
-
+    @OneToMany
+    private List<Commerce> commerceList;
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<RoleEntity> roles;
@@ -54,7 +55,6 @@ public class UserEntity implements UserDetails {
 
     @Column(name = "soft_delete")
     private Boolean softDelete = Boolean.FALSE;
-
 
 
     @Override
